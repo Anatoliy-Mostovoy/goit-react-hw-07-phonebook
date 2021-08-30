@@ -1,11 +1,12 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import actionTypes from './contacts-types';
 
 const contacts = [];
 
 const contactsReducer = (state = contacts, action) => {
   switch (action.type) {
-    case 'contacts/getSubmitData':
+    case actionTypes.SUBMIT:
       if (
         state.find(
           state =>
@@ -17,7 +18,7 @@ const contactsReducer = (state = contacts, action) => {
       }
       return [...state, action.payload];
 
-    case 'contacts/handleDelete':
+    case actionTypes.DELETE:
       return state.filter(state => state.id !== action.payload);
 
     default:
@@ -29,7 +30,7 @@ const filter = '';
 
 const filterReducer = (state = filter, action) => {
   switch (action.type) {
-    case 'contacts/changeFilterValue':
+    case actionTypes.FILTER:
       return action.payload;
     default:
       return state;

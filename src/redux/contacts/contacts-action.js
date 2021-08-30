@@ -1,17 +1,19 @@
+import actionTypes from './contacts-types';
+
 const getSubmitData = data => {
-  return { type: 'contacts/getSubmitData', payload: data };
+  return { type: actionTypes.SUBMIT, payload: data };
 };
 
 const handleDelete = data => {
   return {
-    type: 'contacts/handleDelete',
+    type: actionTypes.DELETE,
     payload: data,
   };
 };
 
 const changeFilterValue = value => {
   return {
-    type: 'contacts/changeFilterValue',
+    type: actionTypes.FILTER,
     payload: value,
   };
 };
