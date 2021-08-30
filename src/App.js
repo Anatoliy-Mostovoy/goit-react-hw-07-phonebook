@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Form from './Components/Form/Form';
+import Contacts from './Components/Contacts/Contacts';
+import Filter from './Components/Filter/Filter';
+import s from './App.module.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+export const App = () => {
+  // useEffect(() => {
+  //   localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
+
+  // useEffect(() => {
+  //   const contacts = localStorage.getItem('contacts');
+  //   const contactsPars = JSON.parse(contacts);
+  //   if (contactsPars) {
+  //     setContacts(contactsPars);
+  //   }
+  // }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className={s.Title}>PhoneBook</h1>
+      <Form />
+      <h2 className={s.Title}>Contacts</h2>
+      <Filter />
+      <Contacts />
+      <ToastContainer />
+    </>
   );
-}
-
-export default App;
+};
