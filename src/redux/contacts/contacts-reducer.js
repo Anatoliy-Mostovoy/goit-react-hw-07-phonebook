@@ -1,10 +1,13 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReducer } from '@reduxjs/toolkit';
-import actions from './contacts-action';
+import actions from './contacts-actions';
 
 const contactsReducer = createReducer([], {
-  [actions.getSubmitData]: (state, action) => {
+  [actions.fetchContactSuccess]: (_, action) => {
+    return action.payload;
+  },
+  [actions.addContactSuccess]: (state, action) => {
     if (
       state.find(
         state => state.name.toLowerCase() === action.payload.name.toLowerCase(),
@@ -16,7 +19,7 @@ const contactsReducer = createReducer([], {
     return [...state, action.payload];
   },
 
-  [actions.handleDelete]: (state, action) => {
+  [actions.deleteContactSuccess]: (state, action) => {
     return state.filter(state => state.id !== action.payload);
   },
 });

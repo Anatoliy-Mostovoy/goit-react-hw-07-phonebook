@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import s from './Contacts.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import action from '../../redux/contacts/contacts-action';
+import operations from '../../redux/contacts/contacts-operations';
 
 const Contacts = () => {
   const contacts = useSelector(({ contacts, filter }) => {
@@ -13,6 +13,9 @@ const Contacts = () => {
   });
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(operations.fetchContact());
+  }, [dispatch]);
 
   return (
     <div>
@@ -26,7 +29,7 @@ const Contacts = () => {
                   className={s.Button}
                   type="button"
                   onClick={() => {
-                    dispatch(action.handleDelete(contact.id));
+                    dispatch(operations.deleteContact(contact.id));
                   }}
                 >
                   Delete

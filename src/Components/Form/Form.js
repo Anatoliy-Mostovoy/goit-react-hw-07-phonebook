@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import s from './Form.module.css';
 import { useDispatch } from 'react-redux';
-import action from '../../redux/contacts/contacts-action';
+import operations from '../../redux/contacts/contacts-operations';
 
 const Form = ({ submitMethod }) => {
   Form.propTypes = {
@@ -36,7 +36,7 @@ const Form = ({ submitMethod }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(action.getSubmitData({ name, number, id }));
+    dispatch(operations.addContacts({ name, number, id }));
     // submitMethod({ name, number, id });
     resetState();
   };

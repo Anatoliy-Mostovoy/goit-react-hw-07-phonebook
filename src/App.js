@@ -7,18 +7,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // useEffect(() => {
-  //   const contacts = localStorage.getItem('contacts');
-  //   const contactsPars = JSON.parse(contacts);
-  //   if (contactsPars) {
-  //     setContacts(contactsPars);
-  //   }
-  // }, []);
-
   return (
     <>
       <h1 className={s.Title}>PhoneBook</h1>
